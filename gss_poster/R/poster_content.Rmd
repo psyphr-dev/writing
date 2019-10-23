@@ -5,9 +5,9 @@ date: "10/23/2019"
 output: pdf_document
 ---
 
-```{r global_options, include=FALSE}
+```{r global_options, include = FALSE}
 knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='figs/',
-                      echo=FALSE, warning=FALSE, message=FALSE)
+                      warning=FALSE, message=FALSE)
 ```
 
 # Introduction
@@ -15,7 +15,7 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='figs/',
 ## Interest and need
 
 - Brief literature review - meta-analysis, systematic review, etc.
-- Need in field. See rplos folder for text query. Can `source()` script to bring in rplos info.
+- Need in field (MindWare Technologies). See rplos folder for text query. Can `source()` script to bring in rplos info.
 - Larger issue of the social science "replicability crisis."
 
 ## Logistical and methodological issues
@@ -30,7 +30,7 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='figs/',
 - R ecosystem
 - Rise of data science, open science, and open source software development (e.g., Unconferences)
 - Tidyverse principles
-- Our answer: `psyphr` - R package suite
+- Our answer: `psyphr` - R package suite (currently supporting recent versions of MindWare Technologies workbooks)
 
 # Load Packages
 
@@ -38,17 +38,44 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='figs/',
 # devtools::install_github("psyphr-dev/psyphr.read")
 library(psyphr.read)
 library(tidyverse)
+library(readxl)
 ```
 
-# Dummy Data
+# Example data
 
-## Read 
+Would it be better to take snapshots of the file directory structure and even the Excel workbook? I am trying to think about the best way to show that these data are disorganized, messy, and in need of `psyphr` tools. I don't think it would be particularly useful to include all the code required to "wrangle" one Excel workbook.
 
-```{r}
-psyphr.read::MW("../data/Pilot1/Pilot_Sub1_BP_Baseline.xlsx")
+```{r xlsx_preview}
+readxl::read_xlsx("../data/Pilot1/Pilot_Sub1_ECG_Baseline.xlsx", sheet = 1) %>%
+  tibble::glimpse()
+```
+
+## Create lists of file names
+
+```{r file_list1}
+pilot1_files <- list.files("../data/Pilot1",
+                           pattern = ".xlsx",
+                           full.names = TRUE)
+pilot1_files
+```
+
+```{r file_list2}
+pilot2_files <- list.files("../data/Pilot2",
+                           pattern = ".xlsx",
+                           full.names = TRUE)
+pilot2_files
+```
+
+## Use `psyphr.read::MW()` to read data 
+
+```{r read_file1}
+pilot1_list <- purrr::map(pilot1_files, psyphr.read::MW)
+```
+
+```{r read_file2}
+pilot2_list <- purrr::map(pilot2_files, psyphr.read::MW)
 ```
 
 ## Transform
-
 
 
