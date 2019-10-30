@@ -51,7 +51,5 @@ plosword(list("mindware", "mindware technologies",
 
 # Data stream/measure
 
-plosword(list("heart rate variability", "respiratory sinus arrhythmia",
-              "electrodermal activity", "skin conductance",
-              ), 
+plosword(list("heart rate variability", "skin conductance"), 
          vis = 'TRUE')

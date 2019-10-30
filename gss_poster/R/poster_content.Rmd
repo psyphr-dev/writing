@@ -21,6 +21,11 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='figs/',
 
 - Brief literature review - meta-analysis, systematic review, etc.
 - Need in field (MindWare Technologies). See rplos folder for text query. Can `source()` script to bring in rplos info.
+
+```{r rplos}
+source("../../rplos/explore_plos.R")
+```
+
 - Larger issue of the social science "replicability crisis."
 
 ## Logistical and methodological issues
