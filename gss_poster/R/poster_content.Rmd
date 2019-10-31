@@ -13,21 +13,27 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='figs/',
 # Introduction
 
 - Contemporary perspectives on the embodied mind have motivated increasing interest in psychophysiological processes and their measurement
-- **[POSSIBLY INCLUDE RPLOS TEXT QUERY PLOT HERE]. Can `source()` script to bring in rplos info.
 - While there has been significant theoretical and technological innovation within this domain, the field still lacks sophisticated tools for managing the quantity and qualia of data produced by physiological measures. 
-- We begin to address this need, by introducing a novel pipeline for wrangling, analyzing, and visualizing peripheral physiological data.
+- We begin to address this need, by introducing a novel pipeline for wrangling and visualizing peripheral physiological data.
 - This pipeline is implemented in R, and capitalizes on larger discourses surrounding open science and reproducibility.
 
-## The Problem
+## Interest and need
 
-- Collecting and cleaning physiological data requires multiple software which are versioned and expensive.
-- Using these software, the typical psychophysiology study produces several output files per-subject **[SEE DIAGRAM]
-- These output files vary in their formatting and require extensive data wrangling (e.g., cleaning, exclusions, compilation, alignment) **[NOT SURE THESE EXAMPLES ARE BEST]
-- When conducted via copy-and-paste (e.g., in excel) these processes introduce several researchers degrees of freedom and opportunities for error 
-- Error-ridden data produces error-driven inferences 
-- Because there is no standardized pipeline for data wrangling, analysis, and visualization, data is difficult to share (both internally and externally) and results are difficult to reproduce.
+- Brief literature review - meta-analysis, systematic review, etc.
+- Need in field (MindWare Technologies). See rplos folder for text query. Can `source()` script to bring in rplos info.
 
-**[MAYBE SOMEWHERE WRITE "The Solution" or something]
+```{r rplos}
+source("../../rplos/explore_plos.R")
+```
+
+- Larger issue of the social science "replicability crisis."
+
+## Logistical and methodological issues
+
+- Possible errors and problems at every stage
+- Image of data science pipeline/research workflow
+- Inefficiency and disorganization (e.g., file structure; Excel)
+- Misinterpretation of error-ridden psychophysiological measures
 
 ## Computational reproducibility
 
