@@ -1,7 +1,7 @@
 ---
 title: "GSS Poster Presentation"
 author: "Kathleen E. Wendt, Siqi Zhang, & Mallory J. Feldman"
-date: "10/23/2019"
+date: "Draft by 11/04/2019"
 output: pdf_document
 ---
 
