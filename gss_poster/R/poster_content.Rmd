@@ -38,6 +38,11 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='figs/',
 - Our answer: `psyphr` - R package suite (currently supporting recent versions of MindWare Technologies workbooks)
 - This poster to illustrate purpose and functionality of first R package in suite: `psyphr.read` : wrangle and tidy psychophysiological data from proprietary data collection systems
 
+```{r}
+getwd()
+```
+
+
 # Load Packages
 
 ```{r packages}
@@ -51,44 +56,35 @@ library(readxl)
 
 Would it be better to take snapshots of the file directory structure and even the Excel workbook? I am trying to think about the best way to show that these data are disorganized, messy, and in need of `psyphr` tools. I don't think it would be particularly useful to include all the code required to "wrangle" one Excel workbook.
 
+
 ```{r xlsx_preview}
+list.files("gss_poster/data")
 readxl::read_xlsx("../data/Pilot1/Pilot_Sub1_ECG_Baseline.xlsx", sheet = 1) %>%
   tibble::glimpse()
 ```
 
 ## Create lists of file names - @iqis, what do you think is the best way to manage the multiple person/task/stream problem? I don't think `psyphr.read::MW()` is best used on a folder split by person and task. It would be best for the user to be able to map all of the files in a study at once and have internal labels for person, task, and data stream type that can be filtered.
 
+@wendtke This problem should be covered. If the user needs to read a bunch of files in different folders, he is encouraged to structure them as flat, with `psyphr.read::flatten_study_dir()`, then and `psyphr.read::MW_study()` can work.
+
 ```{r file_list1}
-pilot1_files <- list.files("../data/Pilot1",
-                           pattern = ".xlsx",
-                           full.names = TRUE)
-pilot1_files
+pilot1_path <- "../data/Pilot1"
+list.files(pilot1_path, ".xlsx")
 ```
 
 ```{r file_list2}
-pilot2_files <- list.files("../data/Pilot2",
-                           pattern = ".xlsx",
-                           full.names = TRUE)
-pilot2_files
+pilot2_path <- "../data/Pilot2"
+list.files(pilot2_path, ".xlsx")
 ```
 
-## Use `psyphr.read::MW()` to read data 
-
-`psyphr.read` can wrangle and tidy the Heart Rate Variability and Electrodermal Activity output (Excel workbooks per person per data stream per research task) from MindWare Technologies.
-
-```{r read_file1}
-pilot1_list <- purrr::map(pilot1_files, psyphr.read::MW)
-```
-
-```{r read_file2}
-pilot2_list <- purrr::map(pilot2_files, psyphr.read::MW)
-```
-
-## Transform -- @iqis, what step am I missing? I was playing around with `purrr::map_depth` and `purrr::flatten()` but couldn't get the levels right. 
+## Use `psyphr.read::MW_study()` to read data 
 
 ```{r}
-# broken - psyphr.read::unnest_data(pilot1_list)
+pilot1 <- psyphr.read::MW_study(pilot1_path)
+pilot1_unnested <- pilot1 %>% psyphr.read::unnest_data()
 ```
+
+`View()` both
 
 ## Visualize 
 
