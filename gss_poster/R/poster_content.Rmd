@@ -10,24 +10,26 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='figs/',
                       warning=FALSE, message=FALSE)
 ```
 
-# Introduction - @iqis - can condense introductory sections into poster space by taking key concepts and key words 
+# Introduction
+
+@iqis - can condense introductory sections into poster space by taking key concepts, words, references (can number refs like medical journals instead of APA formatting)
 
 ## The Problem
 
 - Contemporary perspectives on the embodied mind have increased interest in psychophysiological processes and their measurement (CITE).
-- Despite significant innovation (CITE), this burgeoning field lacks sophisticated tools for managing the quantity and quality of psychophysiological data.
-- Currently, most data cleaning and preprocessing requires proprietary software. These software produce several output files per-subject. These files often vary in their formatting and require extensive data wrangling.
+- Despite significant innovation (e.g., Bizzego et al 2019), this burgeoning field lacks sophisticated tools for managing the quantity and quality of psychophysiological data (e.g., Baldwin, 2017).
+- Currently, most data cleaning and preprocessing requires proprietary software
+These software produce several output files per-subject. These files often vary in their formatting and require extensive data wrangling.
 - When conducted by hand, wrangling introduces opportunities for bias and error (CITE).
-- Error-ridden data produces error-driven inferences.
-- Unstandardized formatting obstructs shareability and reproducibility. 
+- **Error-ridden data produces error-driven inferences.**
+- **Unstandardized formatting obstructs shareability and reproducibility.**
 
 ## The Solution
 
 - R provides an existing infrastructure for open-source software development.
-- We introduce a new R package suite, `psyphr`, capitalizing on larger discourses re: open science and computational reproducibility
-- [Point about computational reproducibility - cite- and tidyverse principles -cite-] Laraway, Bizzego, NatlAca, Piccolo, Pelicans, Stodden, Wickham
+- We introduce a new R package suite called `psyphr`, capitalizing on larger discourses re: open science (e.g., Prlic & Proctor, 2012) and computational reproducibility (e.g., Kreibig 2017; Ince et al 2012; Piccolo et al 2016; Stodden & Miguez 2014) _pick best refs_
 - This poster illustrates the purpose and functionality of our first R package within the `psyphr` suite.
-- `psyphr.read` is designed to help researchers wrangle and tidy psychophysiological data from proprietary data collection systems.
+- `psyphr.read` is designed to help researchers wrangle and tidy psychophysiological data from proprietary data collection systems. Currently supports output from [MindWare Technologies](https://www.mindwaretech.com/) software applications.
 
 # Load Packages
 
