@@ -108,7 +108,7 @@ hrv1_rls <- pilot1_unnested %>%
   unnest() %>% 
   filter(`Segment Duration` == "30") %>% 
   select(id_1:id_4, `Segment Number`, RSA) %>% 
-  mutate(rsa_react_rls = RSA - hrv1_baseline$rsa_base) # calculate reactivity
+  mutate(rsa_react_rls = hrv1_rls$RSA - hrv1_baseline$rsa_base) # calculate reactivity
 ```
 
 ## Pilot 2 data preparation
@@ -130,7 +130,7 @@ hrv2_rls <- pilot2_unnested %>%
   unnest() %>% 
   filter(`Segment Duration` == "30") %>% 
   select(id_1:id_4, `Segment Number`, RSA) %>% 
-  mutate(rsa_react_rls = RSA - hrv1_baseline$rsa_base) # calculate reactivity
+  mutate(rsa_react_rls = hrv2_rls$RSA - hrv2_baseline$rsa_base) # calculate reactivity
 
 hrv_rls_data <- full_join(hrv1_rls, hrv2_rls)
 ```
@@ -194,7 +194,7 @@ imp2_rls <- pilot2_unnested %>%
   unnest() %>% 
   filter(`Segment Duration` == "30") %>% 
   select(id_1:id_4, `Segment Number`, PEP) %>% 
-  mutate(pep_react_rls = PEP - imp1_baseline$pep_base) # calculate reactivity
+  mutate(pep_react_rls = PEP - imp2_baseline$pep_base) # calculate reactivity
 ```
 
 ```{r full_imp}
