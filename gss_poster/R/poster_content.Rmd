@@ -14,6 +14,17 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='figs/',
 
 @iqis - can condense introductory sections into poster space by taking key concepts, words, references (can number refs like medical journals instead of APA formatting)
 
+## A Burgeoning Field 
+
+- There is a growing interest in including physiological measurements (i.e., psychophysiology, or study of mind and body) in social and behavioral sciences.
+
+## Conventional Workflow 
+
+- Most researchers do not have access to (free, open source) tools for efficient and effective psychophysiological data management.
+- Current workflow: (1) process data manually in proprietary application, (2) copy-paste individual values from Excel workbook (x1000) into SPSS, (3) and hope all is well.
+- **Error-ridden data produces error-driven inferences.**
+- **Unstandardized formatting obstructs shareability and reproducibility.**
+
 ## The Problem
 
 - Contemporary perspectives on the embodied mind have increased interest in psychophysiological processes and their measurement (CITE).
