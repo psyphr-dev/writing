@@ -1,0 +1,53 @@
+---
+title: "Poster Revisions"
+author: "Kathleen E. Wendt, Siqi Zhang, & Mallory J. Feldman"
+date: "11/11/2019"
+output: pdf_document
+---
+
+Affiliations
+Mallory J. Feldman - University of North Carolina at Chapel Hill
+
+To copy-paste into final draft of poster
+
+NOTE: For references, use in-text superscript numbers according to articles listed in comments.
+
+Title: `psyphr.read`: wrangle and tidy psychophysiological data in R
+
+Section 1: burgeoning field
+Physiological measures are increasingly popular in social, behavioral, and psychological research but yield unwieldy amounts of data and bring their own challenges. To date, few tools have been developed to support reproducibility, efficiency, and accuracy in psychophysiological data processing and management.
+
+“An article about a computational result is advertising, not scholarship. The actual scholarship is the full software environment, code, and data, that produced the result.” (p. 385, Donoho, 2010, paraphrasing Claerbout and Karrenbach, 1992)
+
+Section 2: workflow concerns
+
+Output files from proprietary software are often compiled/aligned by hand (e.g., via copy-paste)
+Manual processes introduce opportunities for bias and error
+Error-ridden data produces error-driven inferences
+Lack of standardization obstructs shareability and reproducibility
+
+[data science workflow image]
+
+Section 3: tidy data
+A main principle of computational reproducibility in R is tidy data (Wickham, 2014), which is defined as 
+
+Each column as a variable
+Each row as an observation
+Each table as a measure
+
+Our work extends these tidy principles to include psychophysiological data, which typically include numerous human subjects participating in a series of laboratory tasks.
+
+Section 4: `psyphr.read` 
+`psyphr.read` is the first in a collection (suite) of R packages for psychophysiological data. With one line of code, the user combines and organizes the entire study (see above illustration). In this tidy form, the user can quickly and easily generate summary statistics and exploratory plots. `psyphr.read` also includes simple data validation techniques to catch errors or problems early.
+
+Section 5: `psyphr` suite and future directions
+Graphic flow of each psyphr package: 
+psyphr.read (wrangle and tidy data from various proprietary system outputs)
+psyphr.check (sophisticated data validation, filtering, and reporting schemes)
+psyphr.plot (publication-grade plots)
+psyphr.model (common statistical models for psychophysiological measures)
+psyphr.bids (file output structure and directory compatibility with Brain Imaging Data Structure regulations)
+
+The full `psyphr` suite will help researchers spend less time on data management and more time “doing science.” This work will provide the foundation of open science practices for psychophysiological research and promote computational reproducibility in fields with increasingly large and complex datasets.
+
+[References](https://osf.io/9qc3w) 
